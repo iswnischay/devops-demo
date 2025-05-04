@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snake
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snake
+  template:
+    metadata:
+      labels:
+        app: snake
+    spec:
+      containers:
+      - name: snake
+        image: 8sem/snake-game
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: snake-service
+spec:
+  selector:
+    app: snake
+  ports:
+    - port: 80
+      targetPort: 80
+

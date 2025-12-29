@@ -12,4 +12,9 @@ minikube service list
 kubectl get hpa -w
 hey -z 60s -c 100 http://snake.gamehub.local
 minikube service gamehub-combined-app-service
+docker pull 8sem/gamehub-app && docker pull 8sem/snake-game && docker pull 8sem/2048-game
+kubectl get pods -n ingress-nginx -verify ingress running
+kubectl get ingress - get ingress ip 
+sudo vim /etc/hosts --edit hosts file and map ingress ip to domains
+192.168.49.2 gamehub.local snake.gamehub.local 2048.gamehub.local -something like this 
 
